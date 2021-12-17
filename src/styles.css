@@ -1,0 +1,28 @@
+
+.btn,nav:hover{
+    border-radius: 0px;
+    
+}
+
+/*product image on card */
+;
+.product-img{
+    min-width: 100px;
+    /* min-height: 80%; */
+    
+   
+}
+
+.mri{
+    margin-right: 10px;
+}
+
+.cart-badge{
+    color: white;
+    background: red;
+    padding: 1px 5px;
+    font-weight:bolder;
+
+    border-radius: 50%;
+
+}
