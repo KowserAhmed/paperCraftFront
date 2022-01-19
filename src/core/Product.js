@@ -40,7 +40,7 @@ const Product = props => {
             <div className="row m-5 mt-5">
                 <div className="col-6">
                 <h4>Product Information</h4>
-                    {product && product.description && product.description.substring(0, 1000) && <Card product={product} showViewProductButton={false} />}
+                    {product && product.description && <Card product={product} showViewProductButton={false} />}
                 </div> 
 
                 <div className="col-4">
