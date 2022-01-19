@@ -25,7 +25,6 @@ const Routes = () => {
         
             <BrowserRouter>
                 <Menu/>
-              
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/shop" exact component={Shop} />
@@ -45,6 +44,9 @@ const Routes = () => {
                     <AdminRoute path="/admin/product/update/:productId" exact component={UpdateProduct} />
 
                 </Switch>
+                <div>
+                    <h1>Footer</h1>
+                </div>
 
             </BrowserRouter>
        

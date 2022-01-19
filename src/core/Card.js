@@ -142,7 +142,7 @@ const Card = ({ product,
         <ShowImage item={product} url="product" />
       
 
-        <p className="lead mt-2 ">{product.description.substring(0, 50)}</p>
+        <p className="lead mt-2 ">{product.description.substring(0, 100)}...</p>
         <h3 style={{ color: "green" }}>${product.price}</h3>
         <p className="fs-4">Category: {product.category && product.category.name}</p>
         <p >Added on {moment(product.createdAt).fromNow()}</p>

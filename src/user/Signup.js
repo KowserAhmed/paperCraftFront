@@ -74,7 +74,7 @@ const Signup = () => {
     return (
         <Layout
             title="Signup"
-            description="Signup to Signup to Green Roof"
+            description="Signup to Paper Craft Park"
             className="container col-md-8 offset-md-2"
         >
             {showSuccess()}

@@ -44,9 +44,6 @@ const Dashboard = () => {
                             Update Profile
                         </Link>
                     </li>
-                    <li className="list-group-item">
-                        <Link className="nav-link" to={`/CreateRoof/${_id}`}>Create Roof</Link>
-                    </li>
                 </ul>
             </div>
         );

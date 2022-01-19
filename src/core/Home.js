@@ -42,18 +42,15 @@ const Home = () => {
 
     return (
 
-        <Layout title="Home Page" description="Green Roof" className="container-fluid container">
-
+        <Layout  title="Paper Craft Park" description="" className="container-fluid container" >
             <Search/>
-
             <h2 className="mb-4">
-                New Arrivals
+               Kowser Ahmed Arrivals
             </h2>
             <div className="row ">
                 {productsByArrival.map((product, i) => (
                   
-                    <div key={i}className="col-4 mb-3">
-    
+                    <div key={i}className="col-12 col-lg-4 col-md-6 mb-3">
                         <Card  product={product} />
                     </div>
                 ))}
