@@ -15,7 +15,7 @@ const Cart = () => {
 
     const showItems = items => {
         return (
-            <div>
+            <div className='container container-fluid'>
                 <h2>Your cart has {`${items.length}`} items</h2>
                 <hr />
                 {items.map((product, i) => (

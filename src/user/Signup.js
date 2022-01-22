@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../core/Layout';
 import { signup } from '../auth';
+import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
 
 const Signup = () => {
     const [values, setValues] = useState({
@@ -38,31 +39,65 @@ const Signup = () => {
     };
 
     const signUpForm = () => (
-        <form>
-            <div className="form-group mt-3">
-                <label className="text-muted">Name</label>
-                <input onChange={handleChange('name')} type="text" className="form-control" value={name} />
-            </div>
+        <Container>
+        <Row className='justify-content-md-center'>
+            <Col xs={12} md={6}>
+                <h2 className='sign-in ml-0'>Sign Up</h2>
+                <Form onSubmit={clickSubmit}>
+                 <Form.Group controlId="name">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="Your Name"
+                            value={name}
+                            onChange={handleChange('name')}
+                            className='input-border'
+                            style={{backgroundColor:"#e9fce9"}}
+                        ></Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="email">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control
+                            type="email"
+                            placeholder="Enter Email"
+                            value={email}
+                            onChange={handleChange("email")}
+                            className='input-border'
+                            style={{backgroundColor:"#e9fce9"}}
+                        ></Form.Control>
+                    </Form.Group>
 
-            <div className="form-group mt-3">
-                <label className="text-muted">Email</label>
-                <input onChange={handleChange('email')} type="email" className="form-control" value={email} />
-            </div>
+                    <Form.Group controlId="password">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                            type="password"
+                            placeholder="Enter Password"
+                            value={password}
+                            onChange={handleChange("password")}
+                            className='input-border'
+                            style={{backgroundColor:"#e9fce9"}}
+                        ></Form.Control>
+                    </Form.Group>
 
-            <div className="form-group mt-3">
-                <label className="text-muted">Password</label>
-                <input onChange={handleChange('password')} type="password" className="form-control" value={password} />
-            </div>
-            <button onClick={clickSubmit} className="btn btn-primary mt-3">
-                Submit
-            </button>
-        </form>
+                    <Button onClick={clickSubmit} className='but bounce-in-top mt-2' type="submit" variant="primary" style={{ backgroundColor: '#3CA861', borderRadius: '5px' }}>
+                        SignUp
+                    </Button>
+                </Form>
+            </Col>
+        </Row>
+    </Container>
     );
 
     const showError = () => (
-        <div className="alert alert-danger mt-3" style={{ display: error ? '' : 'none' }}>
+        <Container>
+             <Row className='justify-content-md-center'>
+                <Col xs={12} md={6}>
+        <div className="alert alert-danger mt-3 justify-content-md-center" style={{ display: error ? '' : 'none' }}>
             {error}
         </div>
+        </Col>
+             </Row>
+        </Container>
     );
 
     const showSuccess = () => (
@@ -72,15 +107,11 @@ const Signup = () => {
     );
 
     return (
-        <Layout
-            title="Signup"
-            description="Signup to Paper Craft Park"
-            className="container col-md-8 offset-md-2"
-        >
+        <div className="container col-md-8 offset-md-2 mt-5" >
             {showSuccess()}
             {showError()}
             {signUpForm()}
-        </Layout>
+        </div>
     );
 };
 

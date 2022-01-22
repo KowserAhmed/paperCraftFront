@@ -3,12 +3,12 @@ import Menu from './Menu';
 import '../styles.css';
  
 
-const Layout = ({ title ='Title', description = 'Description', className, children }) => (
+const Layout = ({description = 'Description', className, children }) => (
    
     <div>
-        <div className="p-5 bg-light ref">
-            <h2>{title}</h2>
-            <p className="lead">{description}</p>
+        <div >
+
+            <p>{description}</p>
         </div>
         <div className={className}>{children}</div>
     </div>

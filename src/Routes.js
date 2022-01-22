@@ -1,4 +1,5 @@
 import React from "react";
+import {Container,Row,Col, Nav} from "react-bootstrap";
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Signup from "./user/Signup";
@@ -19,13 +20,15 @@ import Profile from "./user/Profile";
 import CreateRoof from "./user/CreateRoof";
 import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
+import Footer from "./core/Footer";
 
 const Routes = () => {
     return (
-        
             <BrowserRouter>
-                <Menu/>
+              <Menu/>
+                
                 <Switch>
+                     
                     <Route path="/" exact component={Home} />
                     <Route path="/shop" exact component={Shop} />
                     <Route path="/signin" exact component={Signin} />
@@ -45,7 +48,7 @@ const Routes = () => {
 
                 </Switch>
                 <div>
-                    <h1>Footer</h1>
+                    <Footer></Footer>
                 </div>
 
             </BrowserRouter>

@@ -116,18 +116,18 @@ const Shop = () => {
 
     return (
 
-        <Layout title="Shop Page" description="Search the Crafts of your choice" className="container-fluid container">
+        <div className="container-fluid container mt-5">
             <div className="row">
-                <div className="col-3">
+                <div className="col-3 mt-5">
 
-                    <h4>Filter by categories</h4>
+                    <h5 className='mt-3'>Filter by categories</h5>
                     <ul>
                         <Checkbox categories={categories} handleFilters={filters =>
                             handleFilters(filters, "category")
                         } />
                     </ul>
 
-                    <h4>Filter by price range</h4>
+                    <h5>Filter by price range</h5>
                     <ul>
                         <RadioBox prices={prices} handleFilters={filters =>
                             handleFilters(filters, "price")
@@ -142,12 +142,9 @@ const Shop = () => {
                     <h2 className="mb-4">Products</h2>
                     <div className="row">
                         {filteredResults.map((product, i) => (
-                            <div key={i} className="col-4 mb-3">
+                            <div key={i} className="col-12 col-lg-6 col-md-6 mb-3">
                                 <Card  product={product} />
                             </div>
-
-
-
                         ))}
                     </div>
                     <hr />
@@ -155,7 +152,7 @@ const Shop = () => {
                 </div>
             </div>
 
-        </Layout>
+        </div>
     );
 };
 

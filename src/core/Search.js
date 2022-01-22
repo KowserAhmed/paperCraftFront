@@ -96,11 +96,11 @@ const Search = () => {
         return (
             
             <form onSubmit={searchSubmit}>
-                <span className="input-group-text">
-                    <div className="input-group input-group-lg ">
+                <span className="input-group-text p-0">
+                    <div className="input-group">
 
                         <div className="input-group-prepend">
-                            <select className="btn mt-2 mb-2 " style={{ borderRadius: "5px", marginRight: "10px" }} onChange={handleChange('category')}>
+                            <select className="btn" style={{ borderRadius: "5px", marginRight: "10px" }} onChange={handleChange('category')}>
                                 <option value="All">
                                     All
                                 </option>

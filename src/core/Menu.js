@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated, authenticate } from "../auth";
 import {RiShoppingCartFill} from "react-icons/ri";
 import { Fragment } from 'react';
 import { itemTotal } from "./cartHelpers";
 import Search from './Search';
+import TopHeader from "./TopHeader";
+
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -18,7 +20,8 @@ const isActive = (history, path) => {
 const Menu = ({ history }) => {
     return (
         <div>
-        <h1>class added</h1>
+        <TopHeader></TopHeader>
+        <div >
         <div className="pt-2">
             <ul style={{backgroundColor: "Coral"}} className="nav nav-tabs" >
                 <li className="nav-item">
@@ -30,7 +33,7 @@ const Menu = ({ history }) => {
                    
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" style={isActive(history, "/cart")} to="/cart"><RiShoppingCartFill/>
+                    <Link className="nav-link" style={isActive(history, "/cart")} to="/cart">Cart<RiShoppingCartFill/>
                         <sup><small className="cart-badge">{itemTotal()}</small></sup></Link>
                    
                 </li>
@@ -67,6 +70,7 @@ const Menu = ({ history }) => {
                 
 
             </ul>
+        </div>
         </div>
         </div>
     );

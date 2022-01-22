@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Layout from '../core/Layout';
 import { signin, authenticate, isAuthenticated } from "../auth";
+import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
 
 const Signin = () => {
     const [values, setValues] = useState({
@@ -37,30 +38,43 @@ const Signin = () => {
     };
 
     const signUpForm = () => (
-        <form>
-            <div className="form-group mt-3">
-                <label className="text-muted">Email</label>
-                <input
-                    onChange={handleChange("email")}
-                    type="email"
-                    className="form-control"
-                    value={email}
-                />
-            </div>
+        <Container >
+        <Row className='justify-content-md-center'>
+            <Col xs={12} md={6}>
+                <h2 className='sign-in ml-0'>Sign In</h2>
+                <Form onSubmit={clickSubmit}>
+                    <Form.Group controlId="email">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control
+                            type="email"
+                            placeholder="Enter Email"
+                            value={email}
+                            onChange={handleChange("email")}
+                            className='input-border'
+                            style={{backgroundColor:"#e9fce9"}}
+                        ></Form.Control>
+                    </Form.Group>
 
-            <div className="form-group mt-3">
-                <label className="text-muted">Password</label>
-                <input
-                    onChange={handleChange("password")}
-                    type="password"
-                    className="form-control"
-                    value={password}
-                />
-            </div>
-            <button onClick={clickSubmit} className="btn btn-primary mt-3">
-                Submit
-            </button>
-        </form>
+                    <Form.Group controlId="password">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                            type="password"
+                            placeholder="Enter Password"
+                            value={password}
+                            onChange={handleChange("password")}
+                            className='input-border'
+                            style={{backgroundColor:"#e9fce9"}}
+                        ></Form.Control>
+                    </Form.Group>
+
+                    <Button onClick={clickSubmit} className='but bounce-in-top mt-2' type="submit" variant="primary" style={{ backgroundColor: '#3CA861', borderRadius: '5px' }}>
+                        Signin
+                    </Button>
+                </Form>
+            </Col>
+        </Row>
+    </Container>
+        
     );
 
     const showError = () => (
@@ -74,9 +88,16 @@ const Signin = () => {
 
     const showLoading = () =>
         loading && (
-            <div className="alert alert-info">
-                <h2>Loading...</h2>
-            </div>
+
+            <Spinner
+                animation="border"
+                variant="success"
+                role="status"
+                style={{ width: "40px", height: "40px", margin: "auto", display: 'block' }}
+            >
+            </Spinner>
+
+
         );
 
     const redirectUser = () => {
@@ -93,16 +114,12 @@ const Signin = () => {
     };
 
     return (
-        <Layout
-            title="Signin"
-            description="Signin to Paper Craft Park"
-            className="container col-md-8 offset-md-2"
-        >
+        <div className="container col-md-8 offset-md-2 mt-5" >
             {showLoading()}
             {showError()}
             {signUpForm()}
             {redirectUser()}
-        </Layout>
+        </div>
     );
 };
 

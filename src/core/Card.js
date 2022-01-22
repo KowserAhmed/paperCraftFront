@@ -21,10 +21,9 @@ const Card = ({ product,
 
     return (
       showViewProductButton && (
-        <Link to={`/product/${product._id}`} className="mr-2">
-          <button className="btn btn-outline-primary mt-2 mb-2 mri">
+        <Link to={`/product/${product._id}`} className="mr-2 mb-0">
+          <button style={{borderRadius: "3px"}} className="btn btn-info mt-2 mb-0 mr-5 py-2 px-3">
             View Product
-
           </button>
         </Link>
       )
@@ -48,7 +47,7 @@ const Card = ({ product,
 
   const showAddToCart = (showAddToCartButton) => {
     return showAddToCartButton && (
-      <button onClick={addToCart} className="btn btn-outline-warning mt-2 mb-2 mri " >
+      <button onClick={addToCart} style={{borderRadius: "3px"}} className="btn btn-success mt-2 mb-0  py-2 px-3" >
         Add to Cart
       </button>
     );
@@ -63,7 +62,7 @@ const Card = ({ product,
             removeItem(product._id);
             setRun(!run); // run useEffect in parent Cart
           }}
-          className="btn btn-outline-danger mt-2 mb-2"
+          style={{borderRadius: "3px"}} className="btn btn-danger mt-2 mb-0  py-2 px-3"
         >
           Remove Product
         </button>
@@ -87,7 +86,7 @@ const Card = ({ product,
   const showStock = (quantity) => {
     return (
 
-      quantity > 0 ? <span className="badge rounded-pill bg-success text-white">In Stock</span> : <span className="badge rounded-pill bg-danger text-white">Out of Stock</span>);
+      quantity > 0 ? <span className="badge rounded-pill bg-success text-white  mt-1">In Stock</span> : <span className="badge rounded-pill bg-danger text-white mt-1">Out of Stock</span>);
 
   };
   const handleChange = productId => event => {
@@ -114,7 +113,7 @@ const Card = ({ product,
   const showCartUpdateOptions = cartUpdate => {
     return cartUpdate && (
       <div>
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 mt-3">
           <div className="input-group-prepend">
             <span className="input-group-text">Adjust Quantity</span>
           </div>
@@ -127,32 +126,23 @@ const Card = ({ product,
   };
 
   return (
-
-
-
-    <div className="card h-100 shadow">
-      <div className="card-header bg-success text-white fw-bold">
-        {product.name}
+    // Krishivai
+    <div className="rounded card-shadow bg-light">
+      <div style={{paddingBottom:"0px"}}  className="px-3 pt-3 m-0">
+      <ShowImage  item={product} url="product" />
       </div>
-
-
-      <div className="card-body">
+      <div style={{paddingTop:"0px"}} className="card-body" >
         {shouldRedirect(redirect)}
 
-        <ShowImage item={product} url="product" />
-      
-
-        <p className="lead mt-2 ">{product.description.substring(0, 100)}...</p>
-        <h3 style={{ color: "green" }}>${product.price}</h3>
-        <p className="fs-4">Category: {product.category && product.category.name}</p>
-        <p >Added on {moment(product.createdAt).fromNow()}</p>
-
-
-
+       
+        <div className="card-title fw-bold fs-4 m-0 p-0">
+        {product.name}
+         </div>
+        <h4 className="m-0 p-0" style={{ color: "green" }}><span style={{fontSize:"30px"}}>৳</span>{product.price}</h4>
+        <p  className="fs-5 m-0 mt-1p-0">Category: {product.category && product.category.name}</p>
+        <p  className="m-0 mt-1 p-0">Added on {moment(product.createdAt).fromNow()}</p>
         {showStock(product.quantity)}
         <br />
-
-
         {showViewButton(showViewProductButton)}
 
         {showAddToCart(showAddToCartButton)}
@@ -167,6 +157,50 @@ const Card = ({ product,
 
       </div>
     </div>
+
+
+
+
+
+
+
+
+    // end
+
+
+
+    // <div className="card h-100 shadow">
+    //   <div className="card-header bg-success text-white fw-bold">
+    //     {product.name}
+    //   </div>
+
+
+    //   <div className="card-body" >
+    //     {shouldRedirect(redirect)}
+
+    //     <ShowImage item={product} url="product" />
+
+
+    //     <p className="lead mt-2 ">{product.description.substring(0, 50)}</p>
+    //     <h3 style={{ color: "green" }}>TK {product.price}</h3>
+    //     <p className="fs-4">Category: {product.category && product.category.name}</p>
+    //     <p >Added on {moment(product.createdAt).fromNow()}</p>
+
+
+
+    //     {showStock(product.quantity)}
+    //     <br />
+
+
+    //     {showViewButton(showViewProductButton)}
+
+    //     {showAddToCart(showAddToCartButton)}
+    //     {showRemoveButton(showRemoveProductButton)}
+
+    //     {showCartUpdateOptions(cartUpdate)}
+
+    //   </div>
+    // </div>
 
 
 

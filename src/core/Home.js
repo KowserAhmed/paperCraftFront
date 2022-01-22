@@ -3,6 +3,8 @@ import Layout from './Layout';
 import { getProducts } from './apiCore';
 import Card from './Card';
 import Search from './Search';
+import HowitWorks from './HowitWorks';
+import HeadingSection from './HeadingSection';
 
 const Home = () => {
     const [productsBySell, setProductsBySell] = useState([]);
@@ -32,7 +34,6 @@ const Home = () => {
             }
         });
 
-
     };
 
     useEffect(() => {
@@ -41,31 +42,35 @@ const Home = () => {
     }, []);
 
     return (
+        <>
+            <HeadingSection></HeadingSection>
+            <HowitWorks></HowitWorks>
+           
+            <div className='container container-fluid'>
+                <Search />
+                <h2 className="mb-4">
+                    New Arrivals
+                </h2>
+                <div className="row">
+                    {productsByArrival.map((product, i) => (
 
-        <Layout  title="Paper Craft Park" description="" className="container-fluid container" >
-            <Search/>
-            <h2 className="mb-4">
-               Kowser Ahmed Arrivals
-            </h2>
-            <div className="row ">
-                {productsByArrival.map((product, i) => (
-                  
-                    <div key={i}className="col-12 col-lg-4 col-md-6 mb-3">
-                        <Card  product={product} />
-                    </div>
-                ))}
+                        <div key={i} className="col-12 col-lg-4 col-md-6 mb-3">
+                            <Card product={product} />
+                        </div>
+                    ))}
+                </div>
+                <h2 className="mb-4">
+                    Best Sellers
+                </h2>
+                <div className="row">
+                    {productsBySell.map((product, i) => (
+                        <div key={i} className="col-12 col-lg-4 col-md-6 mb-3">
+                            <Card product={product} />
+                        </div>
+                    ))}
+                </div>
             </div>
-            <h2 className="mb-4">
-                Best Sellers
-            </h2>
-            <div className="row">
-                {productsBySell.map((product, i) => (
-                   <div key={i}className="col-4 mb-3">
-                   <Card  product={product} />
-               </div>
-                ))}
-            </div>
-        </Layout>
+        </>
     );
 };
 export default Home;
