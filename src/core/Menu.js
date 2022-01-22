@@ -1,78 +1,102 @@
-import React from 'react';
+import React from "react";
 import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated, authenticate } from "../auth";
-import {RiShoppingCartFill} from "react-icons/ri";
+import { RiShoppingCartFill } from "react-icons/ri";
 import { Fragment } from 'react';
 import { itemTotal } from "./cartHelpers";
 import Search from './Search';
-import TopHeader from "./TopHeader";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import TopHeader from './TopHeader'
 
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
         return {
             color: "tomato",
+            fontSize: "20px"
 
         };
-    } else return { color: 'white' }
+    } else return { color: 'green', fontSize: "20px" }
 
 }
+const font = () => {
+    return {
+        fontFamily: "'Caveat', cursive",
+        color: "green",
+        fontSize: "25px"
+
+    }
+
+}
+
+
 const Menu = ({ history }) => {
     return (
+        
         <div>
-        <TopHeader></TopHeader>
-        <div >
-        <div className="pt-2">
-            <ul style={{backgroundColor: "Coral"}} className="nav nav-tabs" >
-                <li className="nav-item">
-                    <Link className="nav-link" style={isActive(history, "/")} to="/">Home</Link>
-                   
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" style={isActive(history, "/shop")} to="/shop">Shop</Link>
-                   
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" style={isActive(history, "/cart")} to="/cart">Cart<RiShoppingCartFill/>
-                        <sup><small className="cart-badge">{itemTotal()}</small></sup></Link>
-                   
-                </li>
-                {isAuthenticated() && isAuthenticated().user.role === 0 && (
-                    <li className="nav-item">
-                        <Link className="nav-link" style={isActive(history, "/user/dashboard")} to="/user/dashboard">Dashboard</Link>
-                    </li>
-                )}
-                {isAuthenticated() && isAuthenticated().user.role === 1 && (
-                    <li className="nav-item">
-                        <Link className="nav-link" style={isActive(history, "/admin/dashboard")} to="/admin/dashboard">Dashboard</Link>
-                    </li>
-                )}
+            <div>
+                <TopHeader></TopHeader>
+            </div>
+            <Navbar bg="success" expand="lg">
 
-                {!isAuthenticated() && (
-                    <Fragment>
-                        <li className="nav-item">
-                            <Link className="nav-link" style={isActive(history, "/signin")} to="/signin">Signin</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" style={isActive(history, "/signup")} to="/signup">Signup</Link>
-                        </li>
-                    </Fragment>
-                )}
-                {isAuthenticated() && (
-                    <Fragment>
-                        <li className="nav-item">
-                            <span className="nav-link" style={{ cursor: 'pointer', color: 'white' }} onClick={() => signout(() => {
-                                history.push('/')
-                            })}>Signout</span>
-                        </li>
-                    </Fragment>
-                )}
-                
+                <Container fluid>
+                    <Navbar.Brand style={font()} href="/"> <span style={{ margin: "0px" }}><i className="fab fa-pagelines"></i></span> Green City</Navbar.Brand>
 
-            </ul>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav
+                            className="me-auto "
+                            
+                        >
+                            <Nav.Link style={isActive(history, "/")} href="/">Home</Nav.Link>
+                            <Nav.Link style={isActive(history, "/shop")} href="/shop">Shop</Nav.Link>
+                            <Nav.Link style={isActive(history, "/cart")} href="/cart"><RiShoppingCartFill />
+                                <sup><small className="cart-badge">{itemTotal()}</small></sup></Nav.Link>
+
+                            {isAuthenticated() && isAuthenticated().user.role === 0 && (
+                                <Nav.Link style={isActive(history, "/user/dashboard")} href="/user/dashboard">Dashboard</Nav.Link>
+                            )}
+                            {isAuthenticated() && isAuthenticated().user.role === 1 && (
+                                <Nav.Link style={isActive(history, "/user/dashboard")} href="/user/dashboard">Dashboard</Nav.Link>
+                            )}
+
+                            {!isAuthenticated() && (
+                                <Fragment>
+                                    <Nav.Link style={isActive(history, "/signin")} href="/signin">Signin</Nav.Link>
+                                    <Nav.Link style={isActive(history, "/signup")} href="/signup">Signup</Nav.Link>
+
+                                </Fragment>
+                            )}
+
+                            {isAuthenticated() && (
+                                <Fragment>
+                                    <li className="nav-item">
+                                        <span className="nav-link" style={{ cursor: 'pointer', color: 'green', fontSize: "20px" }} onClick={() => signout(() => {
+                                            history.push('/')
+                                        })}>Signout</span>
+                                    </li>
+                                </Fragment>
+                            )}
+
+
+                        </Nav>
+
+
+
+                    </Navbar.Collapse>
+
+                </Container>
+
+            </Navbar>
+
+
+
+
         </div>
-        </div>
-        </div>
+       
+
+
+
     );
 
 };

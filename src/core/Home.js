@@ -44,7 +44,7 @@ const Home = () => {
     return (
         <>
             <HeadingSection></HeadingSection>
-            <HowitWorks></HowitWorks>
+            
            
             <div className='container container-fluid'>
                 <Search />
@@ -70,6 +70,7 @@ const Home = () => {
                     ))}
                 </div>
             </div>
+            <HowitWorks></HowitWorks>
         </>
     );
 };

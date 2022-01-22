@@ -40,9 +40,7 @@ const Cart = () => {
     );
 
     return (
-        <Layout
-            title="Shopping Cart"
-            description="Manage your cart items. Add remove checkout or continue shopping."
+        <div
             className="container-fluid"
         >
             <div className="row">
@@ -54,7 +52,7 @@ const Cart = () => {
                     <Checkout products={items} setRun={setRun} run={run} />
                 </div>
             </div>
-        </Layout>
+        </div>
     );
 };
 
