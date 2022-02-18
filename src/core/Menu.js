@@ -32,22 +32,27 @@ const font = () => {
 
 const Menu = ({ history }) => {
     return (
-        
+
         <div>
             <div>
                 <TopHeader></TopHeader>
             </div>
-            <Navbar bg="success" expand="lg">
+            <Navbar bg="light" expand="lg">
 
                 <Container fluid>
                     <Navbar.Brand style={font()} href="/"> <span style={{ margin: "0px" }}><i className="fab fa-pagelines"></i></span> Green City</Navbar.Brand>
+                    <div>
+
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
                     <Navbar.Collapse id="responsive-navbar-nav">
+
                         <Nav
-                            className="me-auto "
-                            
+                            className="me-auto"
+
                         >
+
                             <Nav.Link style={isActive(history, "/")} href="/">Home</Nav.Link>
                             <Nav.Link style={isActive(history, "/shop")} href="/shop">Shop</Nav.Link>
                             <Nav.Link style={isActive(history, "/cart")} href="/cart"><RiShoppingCartFill />
@@ -57,7 +62,7 @@ const Menu = ({ history }) => {
                                 <Nav.Link style={isActive(history, "/user/dashboard")} href="/user/dashboard">Dashboard</Nav.Link>
                             )}
                             {isAuthenticated() && isAuthenticated().user.role === 1 && (
-                                <Nav.Link style={isActive(history, "/user/dashboard")} href="/user/dashboard">Dashboard</Nav.Link>
+                                <Nav.Link style={isActive(history, "/admin/dashboard")} href="/admin/dashboard">Dashboard</Nav.Link>
                             )}
 
                             {!isAuthenticated() && (
@@ -80,23 +85,11 @@ const Menu = ({ history }) => {
 
 
                         </Nav>
-
-
-
                     </Navbar.Collapse>
-
+                    </div>
                 </Container>
-
             </Navbar>
-
-
-
-
-        </div>
-       
-
-
-
+            </div>
     );
 
 };

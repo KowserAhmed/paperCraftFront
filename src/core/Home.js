@@ -44,10 +44,11 @@ const Home = () => {
     return (
         <>
             <HeadingSection></HeadingSection>
+            <Search />
             
            
             <div className='container container-fluid'>
-                <Search />
+               
                 <h2 className="mb-4">
                     New Arrivals
                 </h2>

@@ -58,7 +58,7 @@ const AdminDashboard = () => {
     };
 
     return (
-        <Layout title="Dashboard" description={`G'day ${name}!`} className="container-fluid">
+        <div className="container-fluid container mt-4">
             <div className="row">
                 <div className="col-3 mt-5">
                     {adminLinks()}
@@ -69,7 +69,7 @@ const AdminDashboard = () => {
                 </div>
             </div>
 
-        </Layout>
+        </div>
     );
 };
 

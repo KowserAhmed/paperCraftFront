@@ -88,11 +88,11 @@ const Profile = ({ match }) => {
     );
 
     return (
-        <Layout title="Profile" description="Update your profile" className="container-fluid">
+        <div className="container container-fluid mt-5">
             <h2 className="mb-4">Profile update</h2>
             {profileUpdate(name, email,about, password)}
             {redirectUser(success)}
-        </Layout>
+        </div>
     );
 };
 

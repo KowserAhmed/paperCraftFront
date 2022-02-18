@@ -114,10 +114,7 @@ const UpdateCategory = ({ match }) => {
     };
 
     return (
-        <Layout
-            title={`Hi ${user.name}`}
-            description={`This is Update Product Action Page`}
-            className="container-fluid"
+        <div className="container container-fluid mt-5"
         >
             <div className="row">
                 <div className="col-md-8 offset-md-2 m-b-250 mb-5">
@@ -127,7 +124,7 @@ const UpdateCategory = ({ match }) => {
                     {redirectUser()}
                 </div>
             </div>
-        </Layout>
+        </div>
     );
 };
 

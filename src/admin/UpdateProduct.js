@@ -188,7 +188,7 @@ const UpdateProduct = ({ match }) => {
     };
 
     return (
-        <Layout title="Add a new product" description={`G'day ${user.name}, ready to add a new product?`}>
+        <div className="container container-fluid mt-5">
             <div className="row">
                 <div className="col-md-8 offset-md-2">
                     {showLoading()}
@@ -198,7 +198,7 @@ const UpdateProduct = ({ match }) => {
                     {redirectUser()}
                 </div>
             </div>
-        </Layout>
+        </div>
     );
 };
 

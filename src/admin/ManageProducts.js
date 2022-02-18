@@ -34,10 +34,7 @@ const ManageProducts = () => {
     }, []);
 
     return (
-        <Layout
-            title="Manage Products"
-            description="Perform CRUD on products"
-            className="container-fluid"
+        <div className="container container-fluid mt-5"
         >
             <div className="row">
                 <div className="col-12">
@@ -69,7 +66,7 @@ const ManageProducts = () => {
                     <br />
                 </div>
             </div>
-        </Layout>
+        </div>
     );
 };
 
