@@ -1,5 +1,4 @@
 import React from "react";
-import {Container,Row,Col, Nav} from "react-bootstrap";
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Signup from "./user/Signup";
