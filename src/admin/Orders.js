@@ -39,7 +39,7 @@ const Orders = () => {
     const showOrdersLength = () => {
         if (orders.length > 0) {
             return (
-                <h1 className="text-danger display-2">
+                <h1 className="text-danger display-4">
                     Total orders: {orders.length}
                 </h1>
             );

@@ -49,11 +49,13 @@ const ManageProducts = () => {
                                 className="list-group-item d-flex justify-content-between align-items-center"
                             >
                                 <strong>{p.name}</strong>
+                               
                                 <Link to={`/admin/product/update/${p._id}`}>
                                     <span className="badge rounded-pill bg-success">
                                         Update
                                     </span>
                                 </Link>
+                                
                                 <span
                                     onClick={() => destroy(p._id)}
                                     className="badge rounded-pill bg-danger" style={{cursor: "pointer"}}

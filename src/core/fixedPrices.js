@@ -6,27 +6,27 @@ export const prices = [
     },
     {
         _id: 1,
-        name: '$0 to $5',
-        array: [0,5]
+        name: '৳0 to ৳49',
+        array: [0,49]
     },
     {
         _id: 2,
-        name: '$5 to $9',
-        array: [5,9]
+        name: '৳50 to ৳99',
+        array: [50,99]
     },
     {
         _id: 3,
-        name: '$10 to $15',
-        array: [10,15]
+        name: '৳100 to ৳199',
+        array: [100,199]
     },
     {
         _id: 4,
-        name: '$16 to $20',
-        array: [16,20]
+        name: '৳200 to ৳299',
+        array: [200,299]
     },
     {
         _id: 5,
-        name: 'More than $20',
-        array: [20,10]
+        name: 'More than ৳300',
+        array: [300,1000]
     }
 ];

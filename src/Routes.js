@@ -20,6 +20,7 @@ import CreateRoof from "./user/CreateRoof";
 import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
 import Footer from "./core/Footer";
+import About from "./core/About";
 
 const Routes = () => {
     return (
@@ -44,6 +45,7 @@ const Routes = () => {
 
                     <PrivateRoute path="/admin/products" exact component={ManageProducts} />
                     <AdminRoute path="/admin/product/update/:productId" exact component={UpdateProduct} />
+                    <Route path="/about" exact component={About} />
 
                 </Switch>
                 <div>

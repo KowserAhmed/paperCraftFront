@@ -150,11 +150,6 @@ const Card = ({ product,
 
         {showCartUpdateOptions(cartUpdate)}
 
-
-
-
-
-
       </div>
     </div>
 

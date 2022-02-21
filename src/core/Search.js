@@ -73,12 +73,12 @@ const Search = () => {
 
     const searchedProduct = (results = []) => {
         return (
-            <div>
-                <h2 className="mt-4 mb-4 text-success">
+            <div className='container-fluid'>
+                <h2 className="mt-4 mb-4 text-success container-fluid">
                     {searchMessage(searched, results
                     )}
                 </h2>
-                <div className="row">
+                <div className="row container-fluid">
 
                     {results.map((product, i) => (
                         <div className="col-4 mb-3">

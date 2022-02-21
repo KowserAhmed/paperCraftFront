@@ -57,6 +57,7 @@ const Menu = ({ history }) => {
                             <Nav.Link style={isActive(history, "/shop")} href="/shop">Shop</Nav.Link>
                             <Nav.Link style={isActive(history, "/cart")} href="/cart"><RiShoppingCartFill />
                                 <sup><small className="cart-badge">{itemTotal()}</small></sup></Nav.Link>
+                                <Nav.Link style={isActive(history, "/about")} href="/about"> <span style={{fontSize:"15px"}}><i className="fas fa-address-card"></i></span> About Us</Nav.Link>
 
                             {isAuthenticated() && isAuthenticated().user.role === 0 && (
                                 <Nav.Link style={isActive(history, "/user/dashboard")} href="/user/dashboard">Dashboard</Nav.Link>
